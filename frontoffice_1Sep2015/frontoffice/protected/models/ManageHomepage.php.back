@@ -1,0 +1,184 @@
+<?php
+
+/**
+ * This is the model class for table "bo_manage_homepage".
+ *
+ * The followings are the available columns in table 'bo_manage_homepage':
+ * @property string $content_id
+ * @property string $homepage_center_title
+ * @property string $homepage_center_title1
+ * @property string $homepage_center_title2
+ * @property string $homepage_center_title3
+ * @property string $homepage_center_title4
+ * @property string $homepage_center_content
+ * @property string $homepage_center_content1
+ * @property string $homepage_center_content2
+ * @property string $homepage_center_content3
+ * @property string $homepage_center_content4
+ * @property string $homepage_image
+ * @property string $homepage_image1
+ * @property string $homepage_image2
+ * @property string $homepage_image3
+ * @property string $homepage_image4
+ * @property string $homepage_image_title
+ * @property string $homepage_image_title1
+ * @property string $homepage_image_title2
+ * @property string $homepage_image_title3
+ * @property string $homepage_image_title4
+ * @property string $homepage_text
+ * @property string $homepage_text1
+ * @property string $homepage_text2
+ * @property string $homepage_text3
+ * @property string $homepage_text4
+ * @property string $last_updated_on
+ * @property string $updated_by
+ * @property string $is_active
+ *
+ * The followings are the available model relations:
+ * @property BoUsers $updatedBy
+ */
+class ManageHomepage extends CActiveRecord
+{
+	/**
+	 * @return string the associated database table name
+	 */
+	public function tableName()
+	{
+		return 'bo_manage_homepage';
+	}
+
+	/**
+	 * @return array validation rules for model attributes.
+	 */
+	public function rules()
+	{
+		// NOTE: you should only define rules for those attributes that
+		// will receive user inputs.
+		return array(
+			array('homepage_center_title, homepage_center_content, homepage_image, homepage_image_title, last_updated_on, updated_by', 'required'),
+			array('homepage_center_title, homepage_center_title1, homepage_center_title2, homepage_center_title3, homepage_center_title4, homepage_text, homepage_text1, homepage_text2, homepage_text3, homepage_text4', 'length', 'max'=>255),
+			array('homepage_image, homepage_image1, homepage_image2, homepage_image3, homepage_image4', 'length', 'max'=>512),
+			array('homepage_image_title, homepage_image_title1, homepage_image_title2, homepage_image_title3, homepage_image_title4', 'length', 'max'=>99),
+			array('updated_by', 'length', 'max'=>10),
+			array('is_active', 'length', 'max'=>1),
+			array('homepage_center_content1, homepage_center_content2, homepage_center_content3, homepage_center_content4', 'safe'),
+			// The following rule is used by search().
+			// @todo Please remove those attributes that should not be searched.
+			array('content_id, homepage_center_title, homepage_center_title1, homepage_center_title2, homepage_center_title3, homepage_center_title4, homepage_center_content, homepage_center_content1, homepage_center_content2, homepage_center_content3, homepage_center_content4, homepage_image, homepage_image1, homepage_image2, homepage_image3, homepage_image4, homepage_image_title, homepage_image_title1, homepage_image_title2, homepage_image_title3, homepage_image_title4, homepage_text, homepage_text1, homepage_text2, homepage_text3, homepage_text4, last_updated_on, updated_by, is_active', 'safe', 'on'=>'search'),
+		);
+	}
+
+	/**
+	 * @return array relational rules.
+	 */
+	public function relations()
+	{
+		// NOTE: you may need to adjust the relation name and the related
+		// class name for the relations automatically generated below.
+		return array(
+			'updatedBy' => array(self::BELONGS_TO, 'BoUsers', 'updated_by'),
+		);
+	}
+
+	/**
+	 * @return array customized attribute labels (name=>label)
+	 */
+	public function attributeLabels()
+	{
+		return array(
+			'content_id' => 'Content',
+			'homepage_center_title' => 'Homepage Center Title',
+			'homepage_center_title1' => 'Homepage Center Title1',
+			'homepage_center_title2' => 'Homepage Center Title2',
+			'homepage_center_title3' => 'Homepage Center Title3',
+			'homepage_center_title4' => 'Homepage Center Title4',
+			'homepage_center_content' => 'Homepage Center Content',
+			'homepage_center_content1' => 'Homepage Center Content1',
+			'homepage_center_content2' => 'Homepage Center Content2',
+			'homepage_center_content3' => 'Homepage Center Content3',
+			'homepage_center_content4' => 'Homepage Center Content4',
+			'homepage_image' => 'Homepage Image',
+			'homepage_image1' => 'Homepage Image1',
+			'homepage_image2' => 'Homepage Image2',
+			'homepage_image3' => 'Homepage Image3',
+			'homepage_image4' => 'Homepage Image4',
+			'homepage_image_title' => 'Homepage Image Title',
+			'homepage_image_title1' => 'Homepage Image Title1',
+			'homepage_image_title2' => 'Homepage Image Title2',
+			'homepage_image_title3' => 'Homepage Image Title3',
+			'homepage_image_title4' => 'Homepage Image Title4',
+			'homepage_text' => 'Homepage Text',
+			'homepage_text1' => 'Homepage Text1',
+			'homepage_text2' => 'Homepage Text2',
+			'homepage_text3' => 'Homepage Text3',
+			'homepage_text4' => 'Homepage Text4',
+			'last_updated_on' => 'Last Updated On',
+			'updated_by' => 'Updated By',
+			'is_active' => 'Is Active',
+		);
+	}
+
+	/**
+	 * Retrieves a list of models based on the current search/filter conditions.
+	 *
+	 * Typical usecase:
+	 * - Initialize the model fields with values from filter form.
+	 * - Execute this method to get CActiveDataProvider instance which will filter
+	 * models according to data in model fields.
+	 * - Pass data provider to CGridView, CListView or any similar widget.
+	 *
+	 * @return CActiveDataProvider the data provider that can return the models
+	 * based on the search/filter conditions.
+	 */
+	public function search()
+	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('content_id',$this->content_id,true);
+		$criteria->compare('homepage_center_title',$this->homepage_center_title,true);
+		$criteria->compare('homepage_center_title1',$this->homepage_center_title1,true);
+		$criteria->compare('homepage_center_title2',$this->homepage_center_title2,true);
+		$criteria->compare('homepage_center_title3',$this->homepage_center_title3,true);
+		$criteria->compare('homepage_center_title4',$this->homepage_center_title4,true);
+		$criteria->compare('homepage_center_content',$this->homepage_center_content,true);
+		$criteria->compare('homepage_center_content1',$this->homepage_center_content1,true);
+		$criteria->compare('homepage_center_content2',$this->homepage_center_content2,true);
+		$criteria->compare('homepage_center_content3',$this->homepage_center_content3,true);
+		$criteria->compare('homepage_center_content4',$this->homepage_center_content4,true);
+		$criteria->compare('homepage_image',$this->homepage_image,true);
+		$criteria->compare('homepage_image1',$this->homepage_image1,true);
+		$criteria->compare('homepage_image2',$this->homepage_image2,true);
+		$criteria->compare('homepage_image3',$this->homepage_image3,true);
+		$criteria->compare('homepage_image4',$this->homepage_image4,true);
+		$criteria->compare('homepage_image_title',$this->homepage_image_title,true);
+		$criteria->compare('homepage_image_title1',$this->homepage_image_title1,true);
+		$criteria->compare('homepage_image_title2',$this->homepage_image_title2,true);
+		$criteria->compare('homepage_image_title3',$this->homepage_image_title3,true);
+		$criteria->compare('homepage_image_title4',$this->homepage_image_title4,true);
+		$criteria->compare('homepage_text',$this->homepage_text,true);
+		$criteria->compare('homepage_text1',$this->homepage_text1,true);
+		$criteria->compare('homepage_text2',$this->homepage_text2,true);
+		$criteria->compare('homepage_text3',$this->homepage_text3,true);
+		$criteria->compare('homepage_text4',$this->homepage_text4,true);
+		$criteria->compare('last_updated_on',$this->last_updated_on,true);
+		$criteria->compare('updated_by',$this->updated_by,true);
+		$criteria->compare('is_active',$this->is_active,true);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+
+	/**
+	 * Returns the static model of the specified AR class.
+	 * Please note that you should have this exact method in all your CActiveRecord descendants!
+	 * @param string $className active record class name.
+	 * @return ManageHomepage the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+}

@@ -1,0 +1,7 @@
+[20-Aug-2015 23:51:13] PHP Fatal error:  Call to undefined function  gtcwd() in /home2/jlabs/public_html/clients/SWCS/frontoffice/index.php on line 3
+[20-Aug-2015 23:51:13] PHP Fatal error:  Call to undefined function  gtcwd() in /home2/jlabs/public_html/clients/SWCS/frontoffice/index.php on line 3
+[20-Aug-2015 23:51:14] PHP Fatal error:  Call to undefined function  gtcwd() in /home2/jlabs/public_html/clients/SWCS/frontoffice/index.php on line 3
+[20-Aug-2015 23:51:14] PHP Fatal error:  Call to undefined function  gtcwd() in /home2/jlabs/public_html/clients/SWCS/frontoffice/index.php on line 3
+[20-Aug-2015 23:51:14] PHP Fatal error:  Call to undefined function  gtcwd() in /home2/jlabs/public_html/clients/SWCS/frontoffice/index.php on line 3
+[20-Aug-2015 23:51:14] PHP Fatal error:  Call to undefined function  gtcwd() in /home2/jlabs/public_html/clients/SWCS/frontoffice/index.php on line 3
+[22-Aug-2015 03:10:51] PHP Parse error:  syntax error, unexpected '.' in /home2/jlabs/public_html/clients/SWCS/frontoffice/protected/views/home/index.php on line 586
